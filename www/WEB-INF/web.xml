@@ -6,13 +6,10 @@
 <web-app>
 
 
-    <display-name>My Web Application</display-name>
+    <display-name>Uebungen zu Modul 151 2011</display-name>
+		
     <description>
-      This is version X.X of an application to perform
-      a wild and wonderful task, based on servlets and
-      JSP pages.  It was written by Dave Developer
-      (dave@mycompany.com), who should be contacted for
-      more information.
+      Grundgerüst wurde übernommen aus der Dokumentation zu Tomcat 6.
     </description>
 
 
@@ -31,26 +28,9 @@
     <servlet>
       <servlet-name>controller</servlet-name>
       <description>
-        This servlet plays the "controller" role in the MVC architecture
-        used in this application.  It is generally mapped to the ".do"
-        filename extension with a servlet-mapping element, and all form
-        submits in the app will be submitted to a request URI like
-        "saveCustomer.do", which will therefore be mapped to this servlet.
-
-        The initialization parameter names for this servlet are the
-        "servlet path" that will be received by this servlet (after the
-        filename extension is removed).  The corresponding value is the
-        name of the action class that will be used to process this request.
+        Speichetr nur einen Datensatz
       </description>
       <servlet-class>m151.apiu904.controller.ControllerServlet</servlet-class>
-      <init-param>
-        <param-name>listOrders</param-name>
-        <param-value>com.mycompany.myactions.ListOrdersAction</param-value>
-      </init-param>
-      <init-param>
-        <param-name>saveCustomer</param-name>
-        <param-value>com.mycompany.myactions.SaveCustomerAction</param-value>
-      </init-param>
 
       <load-on-startup>5</load-on-startup>
     </servlet>
@@ -69,10 +49,6 @@
     <servlet-mapping>
       <servlet-name>controller</servlet-name>
       <url-pattern>*.do</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-      <servlet-name>controller</servlet-name>
-      <url-pattern>/a</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
