@@ -28,7 +28,7 @@
     <servlet>
       <servlet-name>controller</servlet-name>
       <description>
-        Speichetr nur einen Datensatz
+        Speichert nur einen Datensatz
       </description>
       <servlet-class>m151.apiu904.controller.ControllerServlet</servlet-class>
 

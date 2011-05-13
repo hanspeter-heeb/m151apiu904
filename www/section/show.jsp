@@ -12,7 +12,10 @@
 	<body>
 		
 		<h3><%= s==null? "Datensatz nicht gefunden" : s.getTitle() %></h3>
-		<p><%= o.toString() %></p>
+		<p><%=  session.getAttribute("base") %></p>
+		<p>controller=<%=  session.getAttribute("controller") %></p>
+		<p>action=<%=  session.getAttribute("action") %></p>
+		<p>id=<%=  session.getAttribute("id") %></p>
 		
 	</body>
 </html>
