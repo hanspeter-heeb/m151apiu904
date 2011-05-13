@@ -34,12 +34,14 @@ public class ControllerServlet extends HttpServlet
 		{	String tk=st.nextToken();
 			if(tk.indexOf(".do")>0)
 			{
-				ses.setAttribute("action", tk);
+				ses.setAttribute("action", tk.substring(0, tk.indexOf(".do")));
 			}else
 			{
 				ses.setAttribute("id", tk);
 				if(st.hasMoreElements())
-					ses.setAttribute("action", st.nextToken());
+				{	tk=st.nextToken();
+					ses.setAttribute("action", tk.substring(0, tk.indexOf(".do")));
+				}
 			}
 		}
 		Enumeration<String> ean = req.getAttributeNames();
@@ -48,16 +50,16 @@ public class ControllerServlet extends HttpServlet
 			String an = ean.nextElement();
 			ses.setAttribute(an, req.getAttribute(an));
 		}
-			
+		ses.setAttribute("section", null);
 		DatenbankZugriff.getDatenbankZugriff().setZugangsdaten();
 		Section s1 = new Section();
-		s1.setPrimary("3");
+		s1.setPrimary((String)ses.getAttribute("id"));
 		s1.reload();
-		if (s1!=null)
-			req.getSession().setAttribute("section", s1);
+		if (s1.getPrimary().equals(ses.getAttribute("id")))
+			ses.setAttribute("section", s1);
 		else
-			req.getSession().setAttribute("section", "nicht geladen!");
-		String view = "/section/show.jsp";
+			ses.setAttribute("section", "nicht geladen!");
+		String view = "/"+ses.getAttribute("controller")+"/"+ses.getAttribute("action")+".jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(view);
 		dispatcher.forward(req,resp);
 	}

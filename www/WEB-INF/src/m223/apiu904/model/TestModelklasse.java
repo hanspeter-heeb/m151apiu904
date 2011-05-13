@@ -66,6 +66,16 @@ public class TestModelklasse extends TestCase
 		s.delete();
 	}
 	
+	public void testRetrieved()
+	{
+		Section s = new Section();
+
+		s.setPrimary("1");
+		s.reload();
+		assertTrue(s.getTitle().equals("Projekte"));
+	}
+	
+	
 	public void testCategoryNew()
 	{
 		Category s = new Category();

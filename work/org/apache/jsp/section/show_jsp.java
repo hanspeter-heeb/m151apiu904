@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import m223.apiu904.model.*;
+import m151.apiu904.controller.*;
 
 public final class show_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -51,13 +52,8 @@ public final class show_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\n');
-
-	Object o = session.getAttribute("section");
-	Section s = null;
-	if(o instanceof Section)
-		s = (Section) o;
-
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("<html>\n");
       out.write("\t<head>\n");
@@ -65,22 +61,26 @@ public final class show_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t</head>\n");
       out.write("\t<body>\n");
       out.write("\t\t\n");
-      out.write("\t\t<h3>");
-      out.print( s==null? "Datensatz nicht gefunden" : s.getTitle() );
-      out.write("</h3>\n");
+      out.write("\t\t\n");
       out.write("\t\t<p>");
       out.print(  session.getAttribute("base") );
       out.write("</p>\n");
-      out.write("\t\t<p>controller");
+      out.write("\t\t<p>controller=");
       out.print(  session.getAttribute("controller") );
       out.write("</p>\n");
-      out.write("\t\t<p>action");
+      out.write("\t\t<p>action=");
       out.print(  session.getAttribute("action") );
       out.write("</p>\n");
-      out.write("\t\t<p>id");
+      out.write("\t\t<p>id=");
       out.print(  session.getAttribute("id") );
       out.write("</p>\n");
+      out.write("\t\t<p>section=");
+      out.print(  session.getAttribute("section") );
+      out.write("</p>\n");
       out.write("\t\t\n");
+      out.write("\t\t");
+      out.print( new Helper(session.getAttribute("section")).fieldsTable() );
+      out.write("\n");
       out.write("\t</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
