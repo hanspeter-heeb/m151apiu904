@@ -56,8 +56,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t</head>\n");
       out.write("\t<body>\n");
       out.write("\t\tWebroot ist /www<br/>\n");
-      out.write("\t\tweb.xml ist in /www/WEB-INF/web.xml\n");
-      out.write("\t\t<<a href=\"https://docs.google.com/present/edit?id=0AXhj4VlZubdDZGY3YjlqYzJfMGNrZGoyYmZz&hl=en&authkey=CMTD0YcP\">PrÃ¤sentation</a>\n");
+      out.write("\t\tweb.xml ist in /www/WEB-INF/web.xml</br>\n");
+      out.write("\t\t<a href=\"https://docs.google.com/present/view?id=df7b9jc2_0ckdj2bfs\">PrÃ¤sentation</a>\n");
       out.write("\t</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
