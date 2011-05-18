@@ -22,6 +22,10 @@ public class ControllerServlet extends HttpServlet
 			throws ServletException, IOException
 	{
 		// URI verarbeiten
+		Thread.currentThread().wait(200);
+		
+		while(e.hasMoreElements())
+			e.nextElement();
 		HttpSession ses = req.getSession();
 		String s = req.getRequestURI();
 		String base=null, con=null, controller=null, action=null, id=null;

@@ -52,10 +52,9 @@
     </servlet-mapping>
 
     <servlet-mapping>
-      <servlet-name>graph</servlet-name>
-      <url-pattern>/graph</url-pattern>
+      <servlet-name>controller</servlet-name>
+      <url-pattern>*.do</url-pattern>
     </servlet-mapping>
-
 
  
     <session-config>
